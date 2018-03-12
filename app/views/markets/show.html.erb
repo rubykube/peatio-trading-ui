@@ -1,0 +1,24 @@
+<audio preload="preload" id="success-fx">
+  <source src="<%= audio_path('success.mp3') %>" />
+</audio>
+
+<audio preload="preload" id="warning-fx">
+  <source src="<%= audio_path('warning.mp3') %>" />
+</audio>
+
+<%= render partial: 'header' %>
+<div id="wrap">
+  <div class="content">
+    <%= render partial: 'market_trades' %>
+    <%= render partial: 'market_list' %>
+    <%= render partial: 'candlestick' %>
+    <%= render partial: 'range_switch' %>
+    <%= render partial: 'indicator_switch' %>
+    <%= render partial: 'order_book' %>
+    <%= render partial: 'depths' %>
+    <%= render partial: 'ticker' %>
+    <%= render partial: 'ask_entry', locals: { market: @data.fetch(:current_market) } %>
+    <%= render partial: 'bid_entry', locals: { market: @data.fetch(:current_market) } %>
+    <%= render partial: 'my_orders' %>
+  </div>
+</div>

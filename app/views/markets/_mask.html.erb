@@ -1,0 +1,5 @@
+<% unless @data[:current_member] %>
+  <div class="mask">
+    <p class="text-center"><%= t('.warning').html_safe %></p>
+  </div>
+<% end %>

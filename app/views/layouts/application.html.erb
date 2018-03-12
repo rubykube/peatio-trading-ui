@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peatio Exchange</title>
+    <meta name="description" content="The Opensource Cryptocurrency Exchange">
+    <meta name="keywords" content="Peatio,Opensource,Exchange,Cryptocurrency">
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="<%= @data.fetch(:csrf_token) %>" />
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= custom_stylesheet_link_tag_for :markets %>
+    <%= javascript_tag do %>
+      window.gon = <%= @data.fetch(:gon_variables).to_json.html_safe %>;
+    <% end %>
+    <!--[if lt IE 9]>
+    <%= javascript_include_tag 'html5' %>
+    <![endif]-->
+    <%= javascript_include_tag "locales/#{I18n.locale}" %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body><%= yield %></body>
+</html>
