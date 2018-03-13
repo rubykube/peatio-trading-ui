@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Peatio Exchange</title>
-    <meta name="description" content="The Opensource Cryptocurrency Exchange">
-    <meta name="keywords" content="Peatio,Opensource,Exchange,Cryptocurrency">
+    <title><%= ENV.fetch('METADATA_TITLE') %></title>
+    <meta name="description" content="<%= ENV.fetch('METADATA_DESCRIPTION') %>">
+    <meta name="keywords" content="<%= ENV.fetch('METADATA_KEYWORDS') %>">
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= @data.fetch(:csrf_token) %>" />
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= custom_stylesheet_link_tag_for :markets %>
     <%= javascript_tag do %>
       window.gon = <%= @data.fetch(:gon_variables).to_json.html_safe %>;
     <% end %>

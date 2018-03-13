@@ -39,11 +39,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    arel-is-blank (1.0.0)
-      arel (>= 6.0)
-      arel-to-sql (~> 1.0)
-    arel-to-sql (1.0.0)
-      arel (>= 6.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     bourbon (4.3.4)
@@ -173,7 +168,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  arel-is-blank (~> 1.0)
   bootstrap-sass (~> 3.2.0.2)
   bourbon (~> 4.3)
   coffee-rails (~> 4.2)

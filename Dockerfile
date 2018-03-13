@@ -1,4 +1,5 @@
 FROM ruby:2.5.0
+
 MAINTAINER lbellet@heliostech.fr
 
 # By default image is built using RAILS_ENV=production.
@@ -9,49 +10,32 @@ MAINTAINER lbellet@heliostech.fr
 # See https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables-build-arg
 #
 ARG RAILS_ENV=production
-ENV RAILS_ENV ${RAILS_ENV}
+ENV RAILS_ENV=${RAILS_ENV} APP_HOME=/home/app
 
-ENV APP_HOME=/home/app
-
-RUN groupadd -r app --gid=1000
-RUN useradd -r -m -g app -d /home/app --uid=1000 app
-
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
- && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
- && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
- && apt-get update \
- && apt-get install -y \
-      default-libmysqlclient-dev \
-      imagemagick \
-      gsfonts \
-      chromedriver \
-      nodejs \
-      yarn
+# Create group "app" and user "app".
+RUN useradd --system --create-home --home ${APP_HOME} --shell /sbin/nologin --no-log-init --user-group app
 
 WORKDIR $APP_HOME
 
+# Install dependencies defined in Gemfile.
 COPY Gemfile Gemfile.lock $APP_HOME/
+RUN mkdir -p /opt/vendor/bundle \
+ && chown -R app:app /opt/vendor \
+ && su app -s /bin/bash -c "bundle install --path /opt/vendor/bundle"
 
-# Install dependencies
-RUN mkdir -p /opt/vendor/bundle && chown -R app:app /opt/vendor
-RUN su app -s /bin/bash -c "bundle install --path /opt/vendor/bundle"
-
-# Copy the main application.
+# Copy application sources.
 COPY . $APP_HOME
+# TODO: Use COPY --chown=app:app when Docker Hub will support it.
+RUN chown -R app:app $APP_HOME
 
-RUN chown -R app:app /home/app
+# Switch to application user.
 USER app
 
+# Initialize application configuration & assets.
 RUN ./bin/init_config \
-  && chmod +x ./bin/logger \
-  && bundle exec rake tmp:create yarn:install assets:precompile
+  && bundle exec rake tmp:create assets:precompile
 
-# Expose port 8080 to the Docker host, so we can access it
-# from the outside.
-EXPOSE 8080
-ENTRYPOINT ["bundle", "exec"]
+EXPOSE 3000
 
-# The main command to run when the container starts. Also
-# tell the Rails dev server to bind to all interfaces by
-# default.
-CMD ["puma", "--config", "config/puma.rb"]
+# The main command to run when the container starts.
+CMD ["bundle", "exec", "puma", "--config", "config/puma.rb"]

@@ -1,8 +1,8 @@
 <header class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container-fluid">
     <ul id="menu" class="nav navbar-nav navbar-left">
-      <a class="navbar-brand" href="<%= peatio_platform_url %>">
-        Peatio <%= @data.fetch(:current_market).fetch(:name) %>
+      <a class="navbar-brand" href="/">
+        <%= ENV.fetch('TITLE') %> <%= @data.fetch(:current_market).fetch(:name) %>
       </a>
 
       <p class="navbar-text">

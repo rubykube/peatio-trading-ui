@@ -13,7 +13,6 @@ gem 'font-awesome-sass'
 gem 'bourbon', '~> 4.3'
 gem 'momentjs-rails', '~> 2.17'
 gem 'mini_racer', '~> 0.1', require: false
-gem 'arel-is-blank', '~> 1.0'
 gem 'ejs','~> 1.1'
 gem 'faraday', '~> 0.12'
 

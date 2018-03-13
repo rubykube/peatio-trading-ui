@@ -13,3 +13,4 @@
 
 .byebug_history
 .idea
+/config/application.yml
