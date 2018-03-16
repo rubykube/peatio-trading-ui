@@ -18,6 +18,11 @@ private
   end
   helper_method :fiat_ccy
 
+  def find_ccy(code)
+    @data.fetch(:currencies).find { |ccy| ccy.fetch(:code) == code.to_s }
+  end
+  helper_method :find_ccy
+
   def market_variables_url
     url = URI.parse(ENV.fetch('PLATFORM_ROOT_URL'))
     url = URI.join(url, '/markets/')

@@ -623,11 +623,7 @@ header {
       tr { display: none; }
       &.all { tr { display: block; } }
       &.fiat { tr.quote-fiat { display: block; } }
-      &.btc { tr.quote-btc { display: block; } }
-      &.xrp { tr.quote-xrp { display: block; } }
-      &.bch { tr.quote-bch { display: block; } }
-      &.ltc { tr.quote-ltc { display: block; } }
-      &.dash { tr.quote-dash { display: block; } }
+      &.coin { tr.quote-coin { display: block; } }
     }
   }
 }
