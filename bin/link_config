@@ -3,7 +3,7 @@
 require 'pathname'
 require 'fileutils'
 
-src_root  = Pathname.new('/opt/peatio/config')
+src_root  = Pathname.new('/opt/peatio-trading-ui/config')
 dest_root = Pathname.new(File.expand_path('../../config', __FILE__))
 
 Dir[src_root.join('**/*.yml').to_s].each do |f|
