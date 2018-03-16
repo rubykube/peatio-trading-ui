@@ -7,7 +7,7 @@ language: ruby
 cache: bundler
 
 env:
-  - BOT_USERNAME=kite-bot BOT_NAME="Kite Bot" BOT_EMAIL=kite-bot@heliostech.fr
+  - BOT_USERNAME=kite-bot BOT_NAME="Kite Bot" BOT_EMAIL=kite-bot@heliostech.fr REPOSITORY_SLUG=rubykube/peatio-trading-ui
 
 services:
   - docker
