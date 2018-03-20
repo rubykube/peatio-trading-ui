@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'markets/:id', to: 'markets#show'
+  get 'trading/:market_id', to: 'markets#show'
 end

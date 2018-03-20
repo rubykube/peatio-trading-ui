@@ -26,6 +26,6 @@ private
   def market_variables_url
     url = URI.parse(ENV.fetch('PLATFORM_ROOT_URL'))
     url = URI.join(url, '/markets/')
-    URI.join(url, params[:id] + '.json')
+    URI.join(url, params[:market_id] + '.json')
   end
 end

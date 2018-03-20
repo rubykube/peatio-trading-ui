@@ -37,7 +37,7 @@ class Formatter
     if order_id?
       "/markets/#{market}/orders/#{order_id}"
     else
-      "/markets/#{market}"
+      "/trading/#{market}"
 
   trade: (ask_or_bid) ->
     gon.i18n[ask_or_bid]
