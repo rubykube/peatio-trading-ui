@@ -7,13 +7,19 @@ window.MarketSwitchUI = flight.component ->
 
   @switchMarketGroup = (event, item) ->
     item = $(event.target).closest('a')
-    name = if item.data('name') == gon.fiat_currency then 'fiat' else item.data('name')
+    name = item.data('name')
+
+    if name is 'all'
+      $('.markets-toggle').removeClass('hide')
+    else
+      $('.markets-toggle').addClass('hide')
+      $('.markets-toggle[data-quote-unit="' + name + '"]').removeClass('hide')
+      $('.markets-toggle[data-base-unit="' + name + '"]').removeClass('hide')
 
     @select('marketGroupItem').removeClass('active')
     item.addClass('active')
 
     @select('marketGroupName').text item.find('span').text()
-    @select('marketsTable').attr("class", "table table-hover markets #{name}")
 
   @updateMarket = (select, ticker) ->
     trend = formatter.trend ticker.last_trend
