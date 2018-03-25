@@ -111,7 +111,7 @@ INDICATOR = {MA: false, EMA: false}
     component = @
     range = @default_range(data['minutes'])
     unit = $("[data-unit=#{data['minutes']}]").text()
-    title = "#{gon.market.base_unit.toUpperCase()}/#{gon.market.quote_unit.toUpperCase()} - #{unit}"
+    title = "#{gon.market.ask_unit.toUpperCase()}/#{gon.market.bid_unit.toUpperCase()} - #{unit}"
 
     timeUnits =
       millisecond: 1
@@ -149,7 +149,7 @@ INDICATOR = {MA: false, EMA: false}
             dashStyle: 'solid',
             color: '#777'
         }, false],
-        valueDecimals: gon.market.bid.fixed
+        valueDecimals: gon.market.bid_precision
         borderWidth: 0
         backgroundColor: 'rgba(0,0,0,0)'
         borderRadius: 2
