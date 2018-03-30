@@ -35,7 +35,7 @@ USER app
 RUN ./bin/init_config \
   && bundle exec rake tmp:create assets:precompile
 
-EXPOSE 3000
+EXPOSE 4000
 
 # The main command to run when the container starts.
 CMD ["bundle", "exec", "puma", "--config", "config/puma.rb"]
