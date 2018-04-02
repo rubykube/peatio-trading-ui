@@ -3,8 +3,7 @@
     <ul id="menu" class="nav navbar-nav navbar-left">
       <a class="navbar-brand" href="/">
         <%= ENV.fetch('TITLE') %>
-        <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %>/
-        <%= @data.fetch(:current_market).fetch(:bid_unit).upcase %>
+        <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %>/<%= @data.fetch(:current_market).fetch(:bid_unit).upcase %>
       </a>
 
       <p class="navbar-text">
