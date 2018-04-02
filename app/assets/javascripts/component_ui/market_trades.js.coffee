@@ -33,7 +33,7 @@ window.MarketTradesUI = flight.component ->
     table.find('tr').slice(@attr.tradesLimit).remove()
 
   @notifyMyTrade = (trade) ->
-    market = gon.markets[trade.market]
+    market = gon.markets[trade.market.id]
     message = gon.i18n.notification.new_trade
       .replace(/%{kind}/g, gon.i18n[trade.kind])
       .replace(/%{id}/g, trade.id)
@@ -68,7 +68,7 @@ window.MarketTradesUI = flight.component ->
 
   @handleMyTrades = (event, data, notify=true) ->
     for trade in data.trades
-      if trade.market == gon.market.id
+      if trade.market.id == gon.market.id
         @myTrades.unshift trade
         trade.classes = 'new'
 
