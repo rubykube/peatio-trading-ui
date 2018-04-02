@@ -39,8 +39,8 @@ window.MarketTradesUI = flight.component ->
       .replace(/%{id}/g, trade.id)
       .replace(/%{price}/g, trade.price)
       .replace(/%{volume}/g, trade.volume)
-      .replace(/%{base_unit}/g, market.base_unit.toUpperCase())
-      .replace(/%{quote_unit}/g, market.quote_unit.toUpperCase())
+      .replace(/%{ask_unit}/g, market.ask_unit.toUpperCase())
+      .replace(/%{bid_unit}/g, market.bid_unit.toUpperCase())
     @notify message
 
   @isMine = (trade) ->

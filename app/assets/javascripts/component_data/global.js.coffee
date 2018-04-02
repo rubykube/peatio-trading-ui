@@ -1,9 +1,9 @@
 window.GlobalData = flight.component ->
 
   @refreshDocumentTitle = (event, data) ->
-    symbol = gon.currencies[gon.market.bid.currency].symbol
+    symbol = gon.currencies[gon.market.bid_unit].symbol
     price  = data.last
-    market = [gon.market.ask.currency, gon.market.bid.currency].join("/").toUpperCase()
+    market = [gon.market.ask_unit, gon.market.bid_unit].join("/").toUpperCase()
     title  = 'Peatio Exchange'
 
     document.title = "#{price} #{market} – #{title}"
