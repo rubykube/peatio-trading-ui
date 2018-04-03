@@ -62,7 +62,7 @@ def bump_from_master_branch
 
   # Increment patch version number, tag, and push.
   candidate_version = Gem::Version.new(latest_version.segments.dup.tap { |s| s[2] += 1 }.join("."))
-  tag_n_push(candidate_version.to_s, name: 'master') unless versions.include?(candidate_version)
+  tag_n_push(candidate_version.to_s, name: "master") unless versions.include?(candidate_version)
 end
 
 #
@@ -96,9 +96,9 @@ end
 #
 # @param tag [String]
 def tag_n_push(tag, branch)
-  File.open "lib/peatio_trading_ui/version.rb", "w" do |f|
+  File.open "lib/peatio/version.rb", "w" do |f|
     f.write <<-RUBY
-module PeatioTradingUI
+module Peatio
   VERSION = '#{tag}'
 end
     RUBY
@@ -109,7 +109,7 @@ end
     %( git config --global user.name "#{bot_name}" ),
     %( git remote add authenticated-origin https://#{bot_username}:#{ENV.fetch("GITHUB_API_KEY")}@github.com/#{repository_slug} ),
     %( git checkout -b release ),
-    %( git add lib/peatio_trading_ui/version.rb ),
+    %( git add lib/peatio/version.rb ),
     %( git commit -m "[ci skip] Bump #{tag}." ),
     %( git push authenticated-origin release:#{branch.fetch(:name)} ),
     %( git tag #{tag} -a -m "Automatically generated tag from TravisCI build #{ENV.fetch("TRAVIS_BUILD_NUMBER")}." ),
@@ -199,7 +199,7 @@ bump &&= !tagged_commits_mapping.key?(ENV["TRAVIS_COMMIT"])
 
 if bump
   if ENV["TRAVIS_BRANCH"] == "master"
-    bump_from_master_branch
+    bump_from_master_branch if ENV["INCREMENT_PATCH_LEVEL_ON_MASTER"]
   else
     bump_from_version_specific_branch(ENV["TRAVIS_BRANCH"])
   end
