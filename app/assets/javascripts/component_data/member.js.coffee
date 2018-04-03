@@ -4,7 +4,7 @@
     channel = @attr.pusher.subscribe("private-#{gon.user.sn}")
 
     channel.bind 'account', (data) =>
-      gon.accounts[data.currency] = data
+      gon.accounts[data.currency.code] = data
       @trigger 'account::update', gon.accounts
 
     channel.bind 'order', (data) =>
