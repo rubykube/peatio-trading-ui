@@ -9,7 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '~> 4.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'bootstrap-sass', '~> 3.2.0.2'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0'
 gem 'bourbon', '~> 4.3'
 gem 'momentjs-rails', '~> 2.17'
 gem 'mini_racer', '~> 0.1', require: false
