@@ -1,4 +1,5 @@
 en:
+  platform_title: <%= ENV.fetch('TITLE', 'Peatio') %>
   markets:
     show:
       error: Failed
