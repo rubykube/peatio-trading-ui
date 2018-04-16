@@ -9,7 +9,7 @@
       @$node.find("tr.#{currency.code} span.locked").text(formatter.round(account.locked, 5))
 
   @updateTotalAssets = ->
-    baseCurrency = gon.fiat_currency
+    baseCurrency = gon.base_currency
     symbol = gon.currencies[baseCurrency].symbol
     sum = 0
 
