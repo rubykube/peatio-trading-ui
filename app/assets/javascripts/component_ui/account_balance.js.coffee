@@ -8,14 +8,14 @@
       @$node.find(".account.#{currency} span.total").text "#{symbol}#{formatter.round total, 2}"
 
   @updateTotalAssets = (event, data) ->
-    fiatCurrency = gon.fiat_currency
-    symbol = gon.currencies[fiatCurrency].symbol
+    baseCurrency = gon.fiat_currency
+    symbol = gon.currencies[baseCurrency].symbol
     sum = 0
     for currency, account of data
-      if currency is fiatCurrency
+      if currency is baseCurrency
         sum += +account.balance
         sum += +account.locked
-      else if ticker = gon.tickers["#{currency}#{fiatCurrency}"]
+      else if ticker = gon.tickers["#{currency}#{baseCurrency}"]
         sum += +account.balance * +ticker.last
         sum += +account.locked * +ticker.last
 
