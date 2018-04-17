@@ -9,15 +9,15 @@
       @$node.find("tr.#{currency.code} span.locked").text(formatter.round(account.locked, 5))
 
   @updateTotalAssets = ->
-    fiatCurrency = gon.fiat_currency
-    symbol = gon.currencies[fiatCurrency].symbol
+    displayCurrency = gon.display_currency
+    symbol = gon.currencies[displayCurrency].symbol
     sum = 0
 
     for currency, account of @accounts
-      if currency is fiatCurrency
+      if currency is displayCurrency
         sum += +account.balance
         sum += +account.locked
-      else if ticker = @tickers["#{currency}#{fiatCurrency}"]
+      else if ticker = @tickers["#{currency}#{displayCurrency}"]
         sum += +account.balance * +ticker.last
         sum += +account.locked * +ticker.last
 
