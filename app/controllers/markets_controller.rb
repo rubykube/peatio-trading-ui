@@ -2,6 +2,7 @@ require 'uri'
 
 class MarketsController < ApplicationController
   def show
+    attempts_left ||= 3
     response = Faraday.get(market_variables_url, params.slice(:lang), 'Cookie' => request.headers['HTTP_COOKIE'])
     if response.status.to_i % 100 == 4
       head response.status
@@ -9,6 +10,8 @@ class MarketsController < ApplicationController
       response.assert_success!
       @data = JSON.load(response.body).deep_symbolize_keys
     end
+  rescue Faraday::Error::TimeoutError => e
+    (attempts_left -= 1) > 0 ? retry : raise
   end
 
 private
