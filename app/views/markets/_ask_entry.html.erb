@@ -4,7 +4,7 @@
       <%= f.hidden_field :ord_type, value: 'limit' %>
       <div class="input-group price">
         <label class="input-group-addon"><%= t('.price') %></label>
-        <span class="label label-danger hint-price-disadvantage"></span>
+        <span class="label label-primary hint-price-disadvantage"></span>
         <%= f.text_field :price, class: 'form-control' %>
         <span class="input-group-addon"><%= market.fetch(:bid_unit).upcase %></span>
       </div>
@@ -21,7 +21,7 @@
       </div>
       <%= render partial: 'balance', locals: { currency: market.fetch(:ask_unit).upcase } %>
 
-      <button class="btn btn-danger btn-block text-down" type="submit">
+      <button class="btn btn-primary btn-block text-down" type="submit">
         <%= t('.action', currency: market.fetch(:ask_unit).upcase) %>
       </button>
     <% end %>

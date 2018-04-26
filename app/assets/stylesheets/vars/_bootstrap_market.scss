@@ -1,65 +1,137 @@
-/* bootstrap for trading tool vars
--------------------------------------------------------------- */
-$grid-gutter-width: 4px;
+// -------------------------------------------------------------
+// COLORS DEFINITIONS
+// -------------------------------------------------------------
+$main-color: #777;
+$second-color: #333;
+$neutral-color: #333;
 
-/* fixed navbar to same home page 
--------------------------------------------------------------- */
-$navbar-padding-horizontal: 5px;
-$navbar-margin-bottom: 0px;
+$green-color: rgb(77, 215, 16);
+$red-color: rgb(208, 0, 23);
 
-$navbar-height: 30px;
+$main-bg: #151515;
+$second-bg: #000;
 
-$body-bg: #000;
+$main-gray: #ccc;
+$dark-gray: #777;
+$black-color: #070707;
 
-$text-color: #ccc;
-$link-color: #ddd;
 
-$up-text: rgb(77, 215, 16);
-$down-text: rgb(208, 0, 23);
-$up-text-fade: rgba(77, 215, 16, 0.9);
-$down-text-fade: rgba(208, 0, 23, 0.9);
+// -------------------------------------------------------------
+// LAYOUT POSITION
+// -------------------------------------------------------------
 
-$panel-bg: rgb(21,21,21);
-$panel-bg-alpha: rgba(28,28,28,0.8);
-$panel-default-heading-bg: #2b3434;
-$panel-default-border: #333;
+$inverted-layout: false; // set to "true" to invert columns
+
+
+// -------------------------------------------------------------
+// COLORS
+// -------------------------------------------------------------
+
+// body
+$body-bg: $second-bg;
+
+// content
+$content-bg: $body-bg;
+$mask-bg: rgba($main-bg, .85);
+
+// texts and links
+$text-color: white;
+$link-color: $main-gray;
+$link-color-hover: lighten($link-color, 10);
+$link-color-active: lighten($link-color, 25);
+$icon-color: $link-color;
+
+// tables
+$table-bg-hover: $second-bg;
+$highlight-color: $second-color;
+$thead-color: $dark-gray;
+$thead-bg: transparent;
+
+// borders
+$border-color: $neutral-color;
+
+
+// -------------------------------------------------------------
+// PANELS
+// -------------------------------------------------------------
+$panel-bg: $main-bg;
+$panel-bg-alpha: rgba($main-bg,0.8);
+$panel-default-heading-bg: $neutral-color;
+$panel-default-border: $neutral-color;
 $panel-border-radius: 2px;
 $panel-body-padding: 8px 8px 8px 8px;
 $panel-heading-padding: 2px 8px 0px 8px;
 $panel-default-text: $text-color;
 
-$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 
-$navbar-default-bg: $panel-bg;
-$navbar-default-border: rgba(179, 175, 156, 0.28);
-$navbar-default-spliter: rgb(32,32,32);
+// -------------------------------------------------------------
+// GREEN (positive numbers)
+// -------------------------------------------------------------
+$up-text: $green-color;
+$up-text-fade: rgba($up-text, 0.9);
 
-$nav-tabs-border-color: #333;
-$nav-tabs-active-link-hover-border-color: #333;
-$nav-tabs-justified-link-border-color: #333;
-$nav-tabs-active-link-hover-bg: $panel-default-heading-bg;
-$nav-tabs-active-link-hover-color: #ccc;
 
+// -------------------------------------------------------------
+// RED (negative numbers)
+// -------------------------------------------------------------
+$down-text: $red-color;
+$down-text-fade: rgba($down-text, 0.9);
+
+
+// -------------------------------------------------------------
+// MISC
+// -------------------------------------------------------------
+$grid-gutter-width: 4px;
 $border-radius-base: 2px;
 
-$dropdown-bg: #333;
-$dropdown-link-color: #ccc;
-$dropdown-link-hover-bg: lighten($dropdown-bg, 40%);
 
-$table-bg-hover: #444;
+// -------------------------------------------------------------
+// NAVBAR & NAVS
+// -------------------------------------------------------------
 
-/* bootstrap form mix 
------------------------------------------------------------- */
+// navbar layout & sizes
+$navbar-padding-horizontal: 5px;
+$navbar-margin-bottom: 0px;
+$navbar-height: 30px;
+
+// Navbar colors
+$navbar-default-bg: $panel-bg;
+$navbar-default-border: $border-color;
+$navbar-default-spliter: $body-bg;
+$navbar-numbers-color: $text-color;
+
+// Tabs colors
+$nav-tabs-border-color: $border-color;
+$nav-tabs-active-link-hover-border-color: $border-color;
+$nav-tabs-justified-link-border-color: $border-color;
+$nav-tabs-active-link-hover-bg: $highlight-color;
+$nav-tabs-active-link-hover-color: $link-color;
+
+// Dropdowns
+$dropdown-bg: $second-bg;
+$dropdown-link-color: $link-color;
+$dropdown-link-hover-bg: $highlight-color;
+
+
+// -------------------------------------------------------------
+// FONTS
+// -------------------------------------------------------------
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+
+// -------------------------------------------------------------
+// FORMS, INPUTS, BUTTONS
+// -------------------------------------------------------------
 $input-bg: $panel-bg;
-$input-color: #fff;
-$input-group-addon-bg: #2b3434;
-$input-border: rgb(85, 85, 85);
+$input-color: $main-bg;
+$input-group-addon-bg: $second-color;
+$input-border: $border-color;
 $input-height-base: 25px;
 $input-border-focus: $navbar-default-border;
 
-$btn-danger-bg: #333;
-$btn-danger-border: #111;
+$btn-primary-bg: $main-color;
+$btn-primary-border: darken($main-color, 5);
 
 $label-info-bg: rgba(0,0,0,0);
 $label-success-bg: rgba(0,0,0,0);
-$label-danger-bg: rgba(0,0,0,0);
+$label-primary-bg: rgba(0,0,0,0);
