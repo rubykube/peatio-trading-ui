@@ -117,7 +117,7 @@ en:
       amount: Amount
       time: Place Time
     mask:
-      warning: Please <a class=text-up href='/'>Sign up</a> or <a class=text-up
+      warning: Please <a href='/'>Sign up</a> or <a
         href='/'>Sign in</a> for operation
   'true': true
   'false': false
