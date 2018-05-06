@@ -42,7 +42,7 @@
             <% @data.fetch(:markets).each do |market| %>
               <tr class="markets-toggle" id="market-list-<%= market.fetch(:id) %>" data-quote-unit="<%= market.fetch(:bid_unit) %>" data-base-unit="<%= market.fetch(:ask_unit) %>" data-market="<%= market[:id] %>">
                 <td class="col-xs-4 name">
-                  <%= link_to market.fetch(:name), '/trading/' + market.fetch(:id) %>
+                  <%= link_to market.fetch(:name), '/trading/' + market.fetch(:id).to_s %>
                 </td>
                 <td class="col-xs-15 price">
                   <%= market.fetch(:ticker).fetch(:last) %>
