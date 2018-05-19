@@ -85,6 +85,7 @@ INDICATOR = {MA: false, EMA: false}
       for type, colors of COLOR
         for s in chart.series
           if !s.userOptions.algorithm? && (s.userOptions.id == type)
+            s.setData(s.userOptions.data, false, false, true) # fixes the candlestick data disappearing issue
             s.update(colors, false)
       @trigger "switch::main_indicator_switch::init"
 
