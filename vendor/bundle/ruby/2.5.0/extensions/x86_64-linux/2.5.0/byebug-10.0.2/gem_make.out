@@ -1,0 +1,19 @@
+current directory: /home/travis/build/rubykube/peatio-trading-ui/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+/home/travis/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180522-6500-1vv4q3k.rb extconf.rb
+creating Makefile
+
+current directory: /home/travis/build/rubykube/peatio-trading-ui/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/travis/build/rubykube/peatio-trading-ui/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/travis/build/rubykube/peatio-trading-ui/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -m 0755 byebug.so ./.gem.20180522-6500-2nbmfb/byebug
