@@ -13,8 +13,9 @@
 @import 'font-awesome';
 @import 'csshake.min';
 
-@import 'layouts/basic';
+
 @import 'layouts/positions';
+@import 'layouts/basic';
 
 /* basic layout
 ------------------------------------------------ */
@@ -213,12 +214,15 @@ header {
   min-width: $min-width;
 }
 .navbar-default .navbar-brand {
-  color: $text-color;
+  color: $main-gray;
 }
 .navbar-default .navbar-text {
   color: $text-color;
   span {
     color: $dark-gray;
+    span {
+      color: $main-gray;
+    }
   }
 }
 
@@ -534,7 +538,7 @@ header {
       padding: 3px 6px 0px 6px;
       min-width: 70px;
       text-align: right;
-      color: $text-color;
+      color: $main-gray;
     }
 
     span.input-group-addon {
@@ -580,8 +584,8 @@ header {
     margin-top: 18px;
     margin-bottom: 13px;
 
-    .current-balance { font-family: $font-family-monospace; }
-    .unit { padding-left: 3px; }
+    .current-balance { font-family: $font-family-monospace; color: $main-gray; }
+    .unit { padding-left: 3px; color: $main-gray; }
   }
 }
 
@@ -656,7 +660,7 @@ table {
 
   span.t-title {
     display: block;
-    text-align: rigth;
+    text-align: right;
   }
 
   span.t-value {
