@@ -428,10 +428,13 @@ INDICATOR = {MA: false, EMA: false}
   @updateByTrades = (event, data) ->
     chart = @$node.find('#candlestick_chart').highcharts()
 
-    if @liveRange(chart)
-      @process(chart, data)
+    if chart.series[0].points.length > 0
+      if @liveRange(chart)
+        @process(chart, data)
+      else
+        @running = false
     else
-      @running = false
+      @trigger "switch::range_switch::init" # reintialize chart when having no data
 
   @liveRange = (chart) ->
     p1 = chart.series[0].points[ chart.series[0].points.length-1 ].x
