@@ -519,6 +519,16 @@ header {
     outline-offset: -2px;
   }
 
+  .btn {
+    background-color: $second-color;
+    border-color: $second-color;
+  }
+
+  .btn:hover{
+    background-color: $main-bg;
+    border-color: $second-bg;
+  }
+
   .row { margin-bottom: 6px; }
 
   .input-group {
