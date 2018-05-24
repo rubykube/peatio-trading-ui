@@ -385,7 +385,8 @@
       height: $my-orders-height - $gutter-2x;
 
       .time, .price, .volume, .amount {
-        & > span { display: block; height: 16px; padding: 2px 0; color: $main-gray; }
+        color: $main-gray;
+        & > span { display: block; height: 16px; padding: 2px 0; }
       }
 
       .empty-row {
