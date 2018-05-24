@@ -580,7 +580,7 @@ header {
   .label { font-size: inherit; }
   .label.label-info { color: $brand-info }
   .label.label-success { color: $brand-success }
-  .label.label-danger { color: $brand-danger }
+  .label.label-danger { color: $brand-danger; background-color: transparent; }
 
   span.status-info, .status-success, .status-danger {
     top: -3px;
