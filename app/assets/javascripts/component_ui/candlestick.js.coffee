@@ -47,12 +47,12 @@ COLOR_ON =
 # The trick is use invalid color code to make the line transparent
 COLOR_OFF =
   candlestick:
-    color: 'invalid'
-    upColor: 'invalid'
-    lineColor: 'invalid'
-    upLineColor: 'invalid'
+    color: 'rgba(0,0,0,0)'
+    upColor: 'rgba(0,0,0,0)'
+    lineColor: 'rgba(0,0,0,0)'
+    upLineColor: 'rgba(0,0,0,0)'
   close:
-    color: 'invalid'
+    color: 'rgba(0,0,0,0)'
 
 COLOR = {
   candlestick: _.extend({}, COLOR_OFF.candlestick),
