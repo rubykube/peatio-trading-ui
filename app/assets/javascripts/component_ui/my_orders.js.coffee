@@ -4,7 +4,7 @@
   @getTemplate = (order) -> $(JST["templates/order_active"](order))
 
   @orderHandler = (event, order) ->
-    return unless order.market.id == gon.market.id
+    return unless order.market == gon.market.id
 
     switch order.state
       when 'wait'
