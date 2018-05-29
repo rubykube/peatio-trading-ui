@@ -542,6 +542,7 @@ header {
     }
     .form-control {
       border-color: $border-color;
+      color: $text-color;
     }
 
     label.input-group-addon {
