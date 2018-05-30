@@ -578,7 +578,7 @@ header {
     z-index: 10;
   }
 
-  .label { font-size: inherit; }
+  .label { font-size: inherit; color: $brand-danger;}
   .label.label-info { color: $brand-info }
   .label.label-success { color: $brand-success }
   .label.label-danger { color: $brand-danger; background-color: transparent; }
