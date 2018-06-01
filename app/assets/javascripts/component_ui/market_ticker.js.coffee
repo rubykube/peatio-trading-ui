@@ -7,6 +7,7 @@ window.MarketTickerUI = flight.component ->
 
   @updatePrice = (selector, price, trend) ->
     selector.removeClass('text-up').removeClass('text-down').addClass(formatter.trend(trend))
+    selector.prop('title', formatter.fixBid(price))
     selector.html(formatter.fixBid(price))
 
   @refresh = (event, ticker) ->

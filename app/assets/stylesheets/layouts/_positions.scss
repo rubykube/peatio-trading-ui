@@ -20,6 +20,7 @@
       padding-top: 5px;
       font-size: 34px;
       line-height: 34px;
+      .price { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     }
   }
 
@@ -117,6 +118,16 @@
       .new {
         background-color: #333;
         div { display: none; }
+      }
+
+      td.price, td.volume{
+        div{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      }
+    }
+
+    table.all-trades {
+      td.price, td.volume{
+        max-width: 0px; // required to fix width
       }
     }
 
@@ -225,6 +236,7 @@
       padding-top: 5px;
       font-size: 34px;
       line-height: 34px;
+      .price { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     }
   }
 
@@ -238,6 +250,14 @@
     }
 
     table.asks, table.bids {
+      td {
+        max-width: 0px; // required to fix widths
+        div{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
       .new {
         background-color: #333;
         div { display: none; }
@@ -322,6 +342,15 @@
       .new {
         background-color: #333;
         div { display: none; }
+      }
+      td.price, td.volume{
+        div{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      }
+    }
+
+    table.all-trades {
+      td.price, td.volume{
+        max-width: 0px; // required to fix width
       }
     }
 
