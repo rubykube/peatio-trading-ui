@@ -27,6 +27,7 @@
     width: $order-book-width; height: $order-book-height;
     min-height: $order-book-height;
     top: $gutter; left: $gutter;
+    font-size: 13px;
 
     .panel-body-content {
       min-height: $order-book-height - $panel_table_header_high;
@@ -232,6 +233,7 @@
     width: $order-book-width; height: $order-book-height;
     min-height: $order-book-height;
     top: $gutter; right: $gutter;
+    font-size: 13px;
 
     .panel-body-content {
       min-height: $order-book-height - $panel_table_header_high;

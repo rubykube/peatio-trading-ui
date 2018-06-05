@@ -660,7 +660,7 @@ table {
   padding: 6px 0 6px 6px;
   font-size: 11px;
 
-  & > div { display: inline-block; width: 70px; }
+  & > div { display: inline-block; width: 100px; }
   & > div.tooltip-ma { width: 76; margin-top: 3px; }
   & > div.tooltip-ticker { margin-top: 5px; }
 
@@ -679,6 +679,7 @@ table {
     font-family: $font-family-monospace;
     text-align: right;
     margin-right: 15px;
+    font-size: 10px;
   }
 }
 
