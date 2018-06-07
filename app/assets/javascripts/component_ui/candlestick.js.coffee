@@ -382,12 +382,12 @@ INDICATOR = {MA: false, EMA: false}
       ]
 
   @formatPointArray = (point) ->
-    x: point[0], open: point[1], high: point[2], low: point[3], close: point[4]
+    x: point[0], open: point[1], high: point[2], low: point[3], close: point[4], y: point[4]
 
   @formatCandlestickData = (data) ->
     formatedData = []
     for d in data
-      formatedData.push({x: d[0], open: d[1], high: d[2], low: d[3], close: d[4]})
+      formatedData.push({x: d[0], open: d[1], high: d[2], low: d[3], close: d[4], y: d[4]})
     formatedData
 
   @createPointOnSeries = (chart, i, px, point) ->
