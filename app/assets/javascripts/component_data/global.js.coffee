@@ -1,5 +1,5 @@
 window.GlobalData = flight.component ->
-
+  data_arr = []
   @refreshDocumentTitle = (event, data) ->
     symbol = gon.currencies[gon.market.bid_unit].symbol
     price  = data.last
@@ -73,6 +73,15 @@ window.GlobalData = flight.component ->
     @trigger 'market::tickers', {tickers: tickers, raw: data}
     @.last_tickers = data
 
+  @update_trades = _.debounce(( (trades) ->
+    @trigger 'market::trades', {trades: Array.prototype.concat.apply([], trades)}
+    data_arr = []
+  ), 150)
+
+  @buffer_trades = (data) ->
+    data_arr.push data.trades
+    @update_trades data_arr
+
   @after 'initialize', ->
     @on document, 'market::ticker', @refreshDocumentTitle
 
@@ -89,7 +98,7 @@ window.GlobalData = flight.component ->
       @refreshDepth asks: data.asks, bids: data.bids
 
     market_channel.bind 'trades', (data) =>
-      @trigger 'market::trades', {trades: data.trades}
+      @buffer_trades(data)
 
     # Initializing at bootstrap
     if gon.ticker
