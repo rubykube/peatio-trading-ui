@@ -74,7 +74,7 @@ window.GlobalData = flight.component ->
     @.last_tickers = data
 
   @update_trades = _.debounce(( (trades) ->
-    @trigger 'market::trades', {trades: Array.prototype.concat.apply([], trades)}
+    @trigger 'market::trades', {trades: Array.prototype.concat.apply([], trades).reverse()}
     data_arr = []
   ), 150)
 
