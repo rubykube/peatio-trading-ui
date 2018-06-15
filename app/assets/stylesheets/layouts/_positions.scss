@@ -257,6 +257,12 @@
 
       .price, .amount, .volume { color: $main-gray; padding: 0 2px 0 0;}
 
+      tr {
+        &.text-up, &.text-down {
+          td { color: inherit }
+        }
+      }
+
     }
   }
 
