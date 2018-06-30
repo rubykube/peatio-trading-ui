@@ -15,10 +15,10 @@
     for item in Array.prototype.concat.apply([], items).reverse()
       template += JST["templates/order_active"](item)
 
-    @select('tbody').prepend(template).show('slow')
+    @select('tbody').prepend(template)
     @checkEmpty()
     item_collection = []
-  ), 150)
+  ), 30)
 
   @addOrUpdateItem = (item) ->
     if item.origin_volume == item.volume
@@ -31,7 +31,7 @@
       if existsItem.length
         existsItem.html template.html()
       else
-        template.prependTo(@select('tbody')).show('slow')
+        template.prependTo(@select('tbody'))
 
       @checkEmpty()
 

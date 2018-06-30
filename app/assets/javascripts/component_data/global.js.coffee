@@ -76,7 +76,7 @@ window.GlobalData = flight.component ->
   @update_trades = _.debounce(( (trades) ->
     @trigger 'market::trades', {trades: Array.prototype.concat.apply([], trades).reverse()}
     data_arr = []
-  ), 150)
+  ), 30)
 
   @buffer_trades = (data) ->
     data_arr.push data.trades

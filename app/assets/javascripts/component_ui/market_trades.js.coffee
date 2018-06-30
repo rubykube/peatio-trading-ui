@@ -62,7 +62,7 @@ window.MarketTradesUI = flight.component ->
 
     @select('allTableSelector').prepend(el)
     @marketTrades = @marketTrades.slice(0, @attr.tradesLimit)
-    @select('newMarketTradeContent').slideDown('fast')
+    @select('newMarketTradeContent')
 
     setTimeout =>
       @clearMarkers(@select('allTableSelector'))
@@ -80,7 +80,7 @@ window.MarketTradesUI = flight.component ->
       @notifyMyTrade(trade) if notify
 
     @myTrades = @myTrades.slice(0, @attr.tradesLimit) if @myTrades.length > @attr.tradesLimit
-    @select('newMyTradeContent').slideDown('fast')
+    @select('newMyTradeContent')
 
     setTimeout =>
       @clearMarkers(@select('myTableSelector'))
