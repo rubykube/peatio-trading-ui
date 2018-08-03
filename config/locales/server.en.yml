@@ -117,8 +117,8 @@ en:
       amount: Amount
       time: Place Time
     mask:
-      warning: Please <a href='/'>Sign up</a> or <a
-        href='/'>Sign in</a> for operation
+      warning: Please <a href='%{frontend_url}/signup'>Sign up</a> or <a
+        href='%{frontend_url}/signin'>Sign in</a> for operation
   'true': true
   'false': false
   trade:

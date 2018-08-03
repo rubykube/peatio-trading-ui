@@ -28,7 +28,7 @@
         <%= render partial: 'settings' %>
       <% else %>
         <p class="navbar-text">
-          <%= t('markets.mask.warning').html_safe %>
+          <%= t('markets.mask.warning', frontend_url: ENV['FRONTEND_ROOT_URL']).html_safe %>
         </p>
       <% end %>
       <%= render partial: 'language' %>
