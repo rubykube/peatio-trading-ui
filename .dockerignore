@@ -1,7 +1,7 @@
 .git
 .gitignore
 .idea
-Dockerfile
+#Dockerfile
 .DS_Store
 *.md
 docs
