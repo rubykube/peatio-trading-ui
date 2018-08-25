@@ -4,6 +4,6 @@ services:
     port: 3000
     scale: 2
     environment:
-      - RAILS_ENV=PRODUCTION
+      - RAILS_ENV=production
       - SECRET_KEY_BASE
       - '*'
