@@ -33,7 +33,7 @@ window.MarketTradesUI = flight.component ->
     table.find('tr').slice(@attr.tradesLimit).remove()
 
   @notifyMyTrade = (trade) ->
-    market = gon.markets[trade.market.id]
+    market = gon.markets[trade.market]
     message = gon.i18n.notification.new_trade
       .replace(/%{kind}/g, gon.i18n[trade.kind])
       .replace(/%{id}/g, trade.id)

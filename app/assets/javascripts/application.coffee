@@ -15,11 +15,12 @@
 #= require underscore
 #= require cookies.min
 #= require flight.min
-#= require pusher.min
 
 #= require ./lib/sfx
 #= require ./lib/notifier
-#= require ./lib/pusher_connection
+#= require ./lib/ranger_events_dispatcher
+#= require ./lib/ranger_connection
+
 
 #= require highstock
 #= require_tree ./highcharts/
@@ -55,8 +56,8 @@ $ ->
   MarketTradesUI.attachTo('#market_trades_wrapper')
 
   MarketData.attachTo(document)
-  GlobalData.attachTo(document, {pusher: window.pusher})
-  MemberData.attachTo(document, {pusher: window.pusher}) if gon.accounts
+  GlobalData.attachTo(document, {ranger: window.ranger})
+  MemberData.attachTo(document, {ranger: window.ranger}) if gon.accounts
 
   CandlestickUI.attachTo('#candlestick')
   SwitchUI.attachTo('#range_switch, #indicator_switch, #main_indicator_switch, #type_switch')

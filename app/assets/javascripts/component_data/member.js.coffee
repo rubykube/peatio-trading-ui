@@ -1,16 +1,15 @@
 @MemberData = flight.component ->
   @after 'initialize', ->
     return if not gon.user
-    channel = @attr.pusher.subscribe("private-#{gon.user.sn}")
 
-    channel.bind 'account', (data) =>
+    @attr.ranger.bind 'account', (data) =>
       gon.accounts[data.currency.code] = data
       @trigger 'account::update', gon.accounts
 
-    channel.bind 'order', (data) =>
+    @attr.ranger.bind 'order', (data) =>
       @trigger "order::#{data.state}", data
 
-    channel.bind 'trade', (data) =>
+    @attr.ranger.bind 'trade', (data) =>
       @trigger 'trade', data
 
     # Initializing at bootstrap
