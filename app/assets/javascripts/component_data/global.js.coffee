@@ -24,7 +24,7 @@ window.GlobalData = flight.component ->
     la = _.last(asks)
     lb = _.last(bids)
     if la && lb
-      mid = (_.first(bids)[0] + _.first(asks)[0]) / 2
+      mid = (_.first(bids)[0] + _.first(asks)[0])/2
       offset = Math.min.apply(Math, [Math.max(mid*0.1, 1), (mid-lb[0])*0.8, (la[0]-mid)*0.8])
     else if !la? && lb
       mid = _.first(bids)[0]
@@ -76,19 +76,16 @@ window.GlobalData = flight.component ->
   @after 'initialize', ->
     @on document, 'market::ticker', @refreshDocumentTitle
 
-    global_channel = @attr.pusher.subscribe("market-global")
-    market_channel = @attr.pusher.subscribe("market-#{gon.market.id}-global")
-
-    global_channel.bind 'tickers', (data) =>
+    @attr.ranger.bind 'global.tickers', (data) =>
       @refreshTicker(data)
 
-    market_channel.bind 'update', (data) =>
+    @attr.ranger.bind "#{gon.market.id}.update", (data) =>
       gon.asks = data.asks
       gon.bids = data.bids
       @trigger 'market::order_book::update', asks: data.asks, bids: data.bids
       @refreshDepth asks: data.asks, bids: data.bids
 
-    market_channel.bind 'trades', (data) =>
+    @attr.ranger.bind "#{gon.market.id}.trades", (data) =>
       @trigger 'market::trades', {trades: data.trades}
 
     # Initializing at bootstrap

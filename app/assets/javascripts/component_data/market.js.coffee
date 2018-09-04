@@ -20,7 +20,7 @@
   @createPoint = (i, trade) ->
     # if the gap between old and new point is too wide (> 100 points), stop live
     # load and show hints
-    gap = Math.floor((trade.date-@next_ts) / (@minutes*60))
+    gap = Math.floor((trade.date-@next_ts)/(@minutes*60))
     if gap > 100
       console.log "failed to update, too wide gap."
       window.clearInterval @interval
