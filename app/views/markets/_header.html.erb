@@ -1,7 +1,7 @@
 <header class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container-fluid">
     <ul id="menu" class="nav navbar-nav navbar-left">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href=<%= generate_ui_url('wallets') %> >
         <%= ENV.fetch('TITLE') %>
         <%= @data.fetch(:current_market).fetch(:ask_unit).upcase %>/<%= @data.fetch(:current_market).fetch(:bid_unit).upcase %>
       </a>
