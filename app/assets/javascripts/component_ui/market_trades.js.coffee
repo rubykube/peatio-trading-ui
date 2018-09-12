@@ -53,14 +53,16 @@ window.MarketTradesUI = flight.component ->
         return false
 
   @handleMarketTrades = (event, data) ->
+    el = ''
     for trade in data.trades
       @marketTrades.unshift trade
       trade.classes = 'new'
       trade.classes += ' mine' if @isMine(trade)
-      el = @select('allTableSelector').prepend(JST['templates/market_trade'](trade))
+      el += JST['templates/market_trade'](trade)
 
+    @select('allTableSelector').prepend(el)
     @marketTrades = @marketTrades.slice(0, @attr.tradesLimit)
-    @select('newMarketTradeContent').slideDown('slow')
+    @select('newMarketTradeContent')
 
     setTimeout =>
       @clearMarkers(@select('allTableSelector'))
@@ -78,7 +80,7 @@ window.MarketTradesUI = flight.component ->
       @notifyMyTrade(trade) if notify
 
     @myTrades = @myTrades.slice(0, @attr.tradesLimit) if @myTrades.length > @attr.tradesLimit
-    @select('newMyTradeContent').slideDown('slow')
+    @select('newMyTradeContent')
 
     setTimeout =>
       @clearMarkers(@select('myTableSelector'))
