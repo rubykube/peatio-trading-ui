@@ -12,10 +12,10 @@ $.ajax({
   },
   success: (res) ->
     ranger.bind 'open', ->
-      console.info 'Connection to Ranger at has been established'
+      console.info 'Connection to Ranger has been established'
       return if not gon.user
       console.info 'Solving authorization challenge by sending JWT token'
       ranger.send JSON.stringify {jwt: "Bearer #{res}"}
     ranger.bind 'error', ->
-      console.error(data)
-});
+      alert("Sorry, couldn't establish connection with WebSocket API. If problem persists, please contact support.")
+})
