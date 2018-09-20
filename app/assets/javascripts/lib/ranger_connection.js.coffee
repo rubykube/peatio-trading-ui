@@ -1,6 +1,6 @@
 stream = ['global',"#{gon.market.id}", 'order', 'trade']
 query = {stream: stream}
-address = 'ws://' + "#{gon.ranger_host}:#{gon.ranger_port}?" + $.param(query, true)
+address = "#{gon.ranger_host}:#{gon.ranger_port}?" + $.param(query, true)
 barongPath = "#{gon.barong_domain}" + "/api/v1/sessions/jwt"
 window.ranger = new RangerWebSocket address
 $.ajax({
