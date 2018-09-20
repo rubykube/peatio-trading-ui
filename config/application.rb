@@ -48,6 +48,10 @@ module PeatioTradingUI
     # We disable eager load here since lib/peatio_trading_ui contains lot of stuff which is not required for typical app functions.
     config.paths.add 'lib/peatio_trading_ui', eager_load: false, autoload: true, glob: '*'
 
+    # Configure relative url root by setting URL_ROOT_PATH environment variable.
+    # Used by workbench with API Gateway.
+    config.relative_url_root = ENV.fetch('URL_ROOT_PATH', '/')
+
     # Explicitly require "lib/peatio_trading_ui.rb".
     # require_dependency 'peatio_trading_ui'
   end
