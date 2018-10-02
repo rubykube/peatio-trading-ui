@@ -1,7 +1,30 @@
 var RangerWebSocket = function(url){
-    var conn = new WebSocket(url);
-
     var callbacks = {};
+
+    var conn;
+
+    this.connect = function(){
+        conn = new WebSocket(url);
+
+        // dispatch to the right handlers
+        conn.onmessage = function(evt){
+            var json = JSON.parse(evt.data)
+            if (json instanceof Array) {
+                dispatch(json[0], json[1])
+            } else {
+                if (json['success']) {
+                    console.log(json['success']['message'])
+                } else {
+                    notifier.notify(gon.i18n.notification.title, json['error']['message'])
+                    alert(json['error']['message'])
+                }
+            }
+        };
+
+        conn.onerror = function(){dispatch('error',null)}
+        conn.onclose = function(){dispatch('close',null)}
+        conn.onopen = function(){dispatch('open',null)}
+    }
 
     this.bind = function(event_name, callback){
         callbacks[event_name] = callbacks[event_name] || [];
@@ -14,24 +37,6 @@ var RangerWebSocket = function(url){
         return this;
     };
 
-    // dispatch to the right handlers
-    conn.onmessage = function(evt){
-        var json = JSON.parse(evt.data)
-        if (json instanceof Array) {
-            dispatch(json[0], json[1])
-        } else {
-            if (json['success']) {
-                console.log(json['success']['message'])
-            } else {
-                notifier.notify(gon.i18n.notification.title, json['error']['message'])
-                console.error(json['error']['message'])
-            }
-        }
-    };
-
-    conn.onerror = function(){dispatch('error',null)}
-    conn.onclose = function(){dispatch('close',null)}
-    conn.onopen = function(){dispatch('open',null)}
 
     var dispatch = function(event_name, message){
         var chain = callbacks[event_name];
