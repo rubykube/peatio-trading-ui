@@ -17,6 +17,4 @@ ranger.bind 'open', ->
         console.info 'Solving authorization challenge by sending JWT token'
         ranger.send JSON.stringify {jwt: "Bearer #{res}"}
   })
-ranger.bind 'error', ->
-  alert("Sorry, couldn't establish connection with WebSocket API. If problem persists, please contact support.")
 ranger.connect()
