@@ -1,8 +1,9 @@
 stream = ['global',"#{gon.market.id}", 'order', 'trade']
 query = {stream: stream}
-address = "#{gon.ranger_host}:#{gon.ranger_port}?" + $.param(query, true)
+ranger_scheme = if gon.ranger_connect_secure == "true" then "wss://" else "ws://"
+ranger_address =  "#{ranger_scheme}#{gon.ranger_host}:#{gon.ranger_port}?" + $.param(query, true)
 barongPath = "#{gon.barong_domain}" + "/api/v1/sessions/jwt"
-window.ranger = new RangerWebSocket address
+window.ranger = new RangerWebSocket ranger_address
 if gon.user
   ranger.bind 'open', ->
     console.info 'Connection to Ranger has been established'
