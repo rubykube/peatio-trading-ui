@@ -20,8 +20,6 @@
       $.ajax
         url:     formatter.market_url gon.market.id, tr.data('id')
         method:  'delete'
-        success: =>
-          location.reload()
 
   @after 'initialize', ->
     @on document, 'order::wait::populate', @populate
