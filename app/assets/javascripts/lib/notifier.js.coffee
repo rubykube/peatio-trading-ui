@@ -13,7 +13,7 @@ class Notifier
       if Notification.permission == 'default'
         @requestPermission(@checkOrRequirePermission)
       else if Notification.permission == 'denied'
-        @setStatus(false)
+        @setState(false)
         @removeSwitch()
 
   removeSwitch: ->
