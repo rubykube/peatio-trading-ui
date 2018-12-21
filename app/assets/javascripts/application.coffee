@@ -34,6 +34,7 @@
 #= require_self
 
 $ ->
+  gon.enable_depth_chart = $('#depths').attr('data-enabled') == 'true'
   window.notifier = new Notifier()
 
   BigNumber.config(ERRORS: false)
