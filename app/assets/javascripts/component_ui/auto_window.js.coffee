@@ -31,7 +31,8 @@ BORDER_WIDTH = 1
 
       $('#candlestick').height(window_h - navbar_h - gutter_3x)
 
-      order_h = window_h - navbar_h - entry_h - depths_h - my_orders_h - ticker_h - gutter_6x - 2*BORDER_WIDTH
+      order_h = window_h - navbar_h - entry_h - my_orders_h - ticker_h - gutter_6x
+      order_h -= depths_h + 2*BORDER_WIDTH if gon.enable_depth_chart
       $('#order_book').height(order_h)
       $('#order_book .panel-body-content').height(order_h - panel_table_header_high - 2*PANEL_PADDING)
 
@@ -39,6 +40,14 @@ BORDER_WIDTH = 1
       $('#market_trades').height(trades_h)
       $('#market_trades .panel').height(trades_h - 2*BORDER_WIDTH)
       $('#market_trades .panel-body-content').height(trades_h - 2*BORDER_WIDTH - panel_table_header_high - 2*PANEL_PADDING)
+
+      # Set Ticker Position
+      if gon.enable_depth_chart
+        ticker_position = entry_h + my_orders_h + depths_h + gutter_4x
+      else
+        ticker_position = entry_h + my_orders_h + gutter_4x - 2*BORDER_WIDTH
+
+      $('#ticker').css('bottom', ticker_position)
 
       # Adjust widths.
       window_w     = window.innerWidth

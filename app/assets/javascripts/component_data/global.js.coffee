@@ -83,7 +83,7 @@ window.GlobalData = flight.component ->
       gon.asks = data.asks
       gon.bids = data.bids
       @trigger 'market::order_book::update', asks: data.asks, bids: data.bids
-      @refreshDepth asks: data.asks, bids: data.bids
+      @refreshDepth asks: data.asks, bids: data.bids if gon.enable_depth_chart
 
     @attr.ranger.bind "#{gon.market.id}.trades", (data) =>
       @trigger 'market::trades', {trades: data.trades}
@@ -97,7 +97,7 @@ window.GlobalData = flight.component ->
 
     if gon.asks and gon.bids
       @trigger 'market::order_book::update', asks: gon.asks, bids: gon.bids
-      @refreshDepth asks: gon.asks, bids: gon.bids
+      @refreshDepth asks: gon.asks, bids: gon.bids if gon.enable_depth_chart
 
     if gon.trades # is in desc order initially
       # .reverse() will modify original array! It makes gon.trades sorted

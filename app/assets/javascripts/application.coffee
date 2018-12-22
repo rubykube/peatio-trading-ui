@@ -34,6 +34,7 @@
 #= require_self
 
 $ ->
+  gon.enable_depth_chart = $('#depths_wrapper').length
   window.notifier = new Notifier()
 
   BigNumber.config(ERRORS: false)
@@ -48,7 +49,7 @@ $ ->
   PlaceOrderUI.attachTo('#bid_entry')
   PlaceOrderUI.attachTo('#ask_entry')
   OrderBookUI.attachTo('#order_book')
-  DepthUI.attachTo('#depths_wrapper')
+  DepthUI.attachTo('#depths_wrapper') if gon.enable_depth_chart
 
   MyOrdersUI.attachTo('#my_orders')
   MarketTickerUI.attachTo('#ticker')

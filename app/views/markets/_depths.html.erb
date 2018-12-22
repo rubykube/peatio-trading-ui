@@ -1,5 +1,7 @@
+<% if ENV.fetch('ENABLE_DEPTH_CHART', 'true') == 'true' %>
 <div id="depths_wrapper" class="panel panel-default">
   <div class="panel-body panel-body-content">
     <div id="depths"></div>
   </div>
 </div>
+<% end %>
