@@ -68,7 +68,7 @@ window.MarketTradesUI = flight.component ->
 
   @handleMyTrades = (event, data, notify=true) ->
     for trade in data.trades
-      if trade.market.id == gon.market.id
+      if trade.market == gon.market.id
         @myTrades.unshift trade
         trade.classes = 'new'
 
