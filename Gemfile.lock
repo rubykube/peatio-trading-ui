@@ -39,7 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    bootstrap-sass (3.2.0.2)
+    bootstrap-sass (3.2.0.4)
       sass (~> 3.2)
     bourbon (4.3.4)
       sass (~> 3.4)
